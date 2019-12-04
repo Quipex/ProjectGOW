@@ -1,4 +1,4 @@
-package gow;
+package gow.generator;
 
 public enum Characteristic {
     INTELLIGENCE,

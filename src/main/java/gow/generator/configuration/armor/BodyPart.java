@@ -1,11 +1,13 @@
-package gow.armor;
+package gow.generator.configuration.armor;
 
-public enum BodyPart {
-    HEAD(0.1f),
-    SHOULDERS(0.1f),
+import gow.generator.configuration.ItemType;
+
+public enum BodyPart implements ItemType {
+    HEAD(0.15f),
+    SHOULDERS(0.075f),
     CHEST(0.4f),
     WRIST(0.05f),
-    BOOTS(0.1f),
+    BOOTS(0.075f),
     HANDS(0.05f),
     LEGS(0.2f);
 
@@ -21,4 +23,5 @@ public enum BodyPart {
     public float getDefencePercent() {
         return defencePercent;
     }
+
 }
