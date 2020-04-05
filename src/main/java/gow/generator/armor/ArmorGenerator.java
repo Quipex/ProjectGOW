@@ -1,7 +1,6 @@
 package gow.generator.armor;
 
 import gow.generator.Characteristic;
-import gow.generator.Item;
 import gow.generator.ItemClass;
 import gow.generator.ItemGenerator;
 import gow.generator.configuration.ItemType;
@@ -14,7 +13,7 @@ import lombok.extern.java.Log;
 import java.util.Random;
 
 @Log
-public class ArmorGenerator extends ItemGenerator {
+public class ArmorGenerator extends ItemGenerator<Armor> {
     /**
      * When generating random defence for an item, this parameter states how many percents of maximum possible defence
      * will be guaranteed to be generated.
@@ -34,30 +33,29 @@ public class ArmorGenerator extends ItemGenerator {
     }
 
     @Override
-    protected ItemType randomItemType() {
+    protected float calcWeight(Armor generatedItem) {
+        return 0;
+    }
+
+    @Override
+    protected BodyPart randomItemType() {
         BodyPart[] bodyParts = BodyPart.values();
         int randomIndex = random.nextInt(bodyParts.length);
         return bodyParts[randomIndex];
     }
 
     @Override
-    protected void fillRequirements(Item generatedItem) {
+    protected void fillRequirements(Armor generatedItem) {
         //todo implement
     }
 
     @Override
-    public Armor generate(int price, ItemType itemType) {
-        return (Armor) super.generate(price, itemType);
-    }
-
-    @Override
-    protected int fillMajorityAndGetCost(int moneyLeft, Item generatedItem, ItemType bodyPart) {
+    protected int fillMajorityAndGetCost(int moneyLeft, Armor generatedItem, Enum<? extends ItemType> bodyPart) {
         try {
-            Armor generatedArmor = (Armor) generatedItem;
             int randomDefence = getRandomDefence(moneyLeft, (BodyPart) bodyPart, armorClass);
-            generatedArmor.setDefence(randomDefence);
-            generatedArmor.setArmorClass(armorClass);
-            generatedArmor.setBodyPart((BodyPart) bodyPart);
+            generatedItem.setDefence(randomDefence);
+            generatedItem.setArmorClass(armorClass);
+            generatedItem.setBodyPart((BodyPart) bodyPart);
             return ArmorPriceCalculator.priceOf(randomDefence, armorClass, (BodyPart) bodyPart);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException("Expected <Armor> item and itemType, got " + generatedItem.getClass() +
@@ -66,7 +64,7 @@ public class ArmorGenerator extends ItemGenerator {
     }
 
     @Override
-    protected Item createEmpty() {
+    protected Armor createEmpty() {
         return new Armor();
     }
 

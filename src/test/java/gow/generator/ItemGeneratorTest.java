@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public abstract class ItemGeneratorTest {
+public abstract class ItemGeneratorTest<T extends Item> {
     private int[] prices = new int[]{50, 100, 200, 500, 800, 1000, 1500, 2000};
 
     public int[] getPrices() {
@@ -15,14 +15,14 @@ public abstract class ItemGeneratorTest {
 
     @Test
     public void generateFullSetOfEach() {
-        ItemGenerator generator = getGenerator();
+        ItemGenerator<T> generator = getGenerator();
         for (int price : getPrices()) {
             System.out.println("====Предмет за " + price + "г.====");
             for (Characteristic characteristic : Characteristic.values()) {
                 System.out.println("\nОсновной параметр " + characteristic);
                 generator.setMainCharacteristic(characteristic);
                 List<Item> items = Lists.newArrayList();
-                for (ItemType itemType : getItemTypes()) {
+                for (Enum<? extends ItemType> itemType : getItemTypes()) {
                     Item item = generator.generate(price, itemType);
                     items.add(item);
                     System.out.println(item.toPrettyDescription());
@@ -41,7 +41,7 @@ public abstract class ItemGeneratorTest {
      */
     protected void pointsSumPrint(List<Item> items) {}
 
-    protected abstract ItemGenerator getGenerator();
+    protected abstract ItemGenerator<T> getGenerator();
 
-    protected abstract ItemType[] getItemTypes();
+    protected abstract Enum<? extends ItemType>[] getItemTypes();
 }

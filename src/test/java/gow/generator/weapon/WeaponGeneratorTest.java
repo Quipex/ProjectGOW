@@ -1,13 +1,11 @@
 package gow.generator.weapon;
 
 import gow.generator.Characteristic;
-import gow.generator.ItemGenerator;
 import gow.generator.ItemGeneratorTest;
-import gow.generator.configuration.ItemType;
 import gow.generator.configuration.weapon.WeaponType;
 import org.junit.jupiter.api.Test;
 
-class WeaponGeneratorTest extends ItemGeneratorTest {
+class WeaponGeneratorTest extends ItemGeneratorTest<Weapon> {
     private WeaponGenerator generator = new WeaponGenerator(Characteristic.STRENGTH);
 
     @Test
@@ -17,12 +15,12 @@ class WeaponGeneratorTest extends ItemGeneratorTest {
     }
 
     @Override
-    protected ItemGenerator getGenerator() {
+    protected WeaponGenerator getGenerator() {
         return generator;
     }
 
     @Override
-    protected ItemType[] getItemTypes() {
+    protected WeaponType[] getItemTypes() {
         return WeaponType.values();
     }
 }

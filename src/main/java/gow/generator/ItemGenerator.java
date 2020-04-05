@@ -11,25 +11,37 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public abstract class ItemGenerator {
+public abstract class ItemGenerator<T extends Item> {
 
     protected Random random = new Random();
 
-    public Item generate(int price) {
+    public T generate(int price) {
         return generate(price, randomItemType());
     }
 
-    public Item generate(int price, ItemType itemType) {
+    public T generate(int price, Enum<? extends ItemType> itemType) {
+        return generate(price, itemType, true);
+    }
+
+    public T generate(int price, Enum<? extends ItemType> itemType, boolean useTraits) {
         int moneyLeft = price;
-        Item generatedItem = createEmpty();
+        T generatedItem = createEmpty();
         moneyLeft -= fillMajorityAndGetCost(moneyLeft, generatedItem, itemType);
         assert moneyLeft >= 0;
-        moneyLeft -= fillTraitsAndGetCost(moneyLeft, generatedItem);
-        assert moneyLeft >= 0;
+        if (useTraits) {
+            moneyLeft -= fillTraitsAndGetCost(moneyLeft, generatedItem);
+            assert moneyLeft >= 0;
+        }
         generatedItem.setPrice(price - moneyLeft);
         fillRequirements(generatedItem);
+        generatedItem.setWeight(calcWeight(generatedItem));
         return generatedItem;
     }
+
+    /**
+     * @return calculated weight of an item according to it's characteristics
+     */
+    protected abstract float calcWeight(T generatedItem);
 
     private int fillTraitsAndGetCost(int moneyLeft, Item generatedItem) {
         List<UniqueTrait> randomTraits = getTraitsForMoney(moneyLeft, getMainCharacteristic());
@@ -59,17 +71,17 @@ public abstract class ItemGenerator {
         return randomPickedTraits;
     }
 
-    protected abstract ItemType randomItemType();
+    protected abstract Enum<? extends ItemType> randomItemType();
 
-    protected abstract void fillRequirements(Item generatedItem);
+    protected abstract void fillRequirements(T generatedItem);
 
-    protected abstract int fillMajorityAndGetCost(int moneyLeft, Item generatedItem, ItemType itemType);
+    protected abstract int fillMajorityAndGetCost(int moneyLeft, T generatedItem, Enum<? extends ItemType> itemType);
 
-    protected abstract Item createEmpty();
+    protected abstract T createEmpty();
 
     protected abstract UniqueTraitsRepository traitsRepository();
 
-    protected abstract Characteristic getMainCharacteristic();
+    public abstract Characteristic getMainCharacteristic();
 
-    protected abstract void setMainCharacteristic(Characteristic characteristic);
+    public abstract void setMainCharacteristic(Characteristic characteristic);
 }

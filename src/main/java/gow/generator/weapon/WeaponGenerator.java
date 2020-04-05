@@ -1,7 +1,6 @@
 package gow.generator.weapon;
 
 import gow.generator.Characteristic;
-import gow.generator.Item;
 import gow.generator.ItemClass;
 import gow.generator.ItemGenerator;
 import gow.generator.configuration.ItemType;
@@ -11,7 +10,7 @@ import gow.generator.utils.RandomUtils;
 
 import java.util.Random;
 
-public class WeaponGenerator extends ItemGenerator {
+public class WeaponGenerator extends ItemGenerator<Weapon> {
     /**
      * @see gow.generator.armor.ArmorGenerator
      */
@@ -26,24 +25,28 @@ public class WeaponGenerator extends ItemGenerator {
     }
 
     @Override
-    protected ItemType randomItemType() {
+    protected float calcWeight(Weapon generatedItem) {
+        return 0;
+    }
+
+    @Override
+    protected Enum<? extends ItemType> randomItemType() {
         WeaponType[] weaponTypes = WeaponType.values();
         int randomIndex = random.nextInt(weaponTypes.length);
         return weaponTypes[randomIndex];
     }
 
     @Override
-    protected void fillRequirements(Item generatedItem) {
+    protected void fillRequirements(Weapon generatedItem) {
         //todo implement
     }
 
     @Override
-    protected int fillMajorityAndGetCost(int moneyLeft, Item generatedItem, ItemType weaponType) {
+    protected int fillMajorityAndGetCost(int moneyLeft, Weapon generatedItem, Enum<? extends ItemType> weaponType) {
         try {
-            Weapon generatedWeapon = (Weapon) generatedItem;
             int randomDamage = getRandomDamage(moneyLeft, (WeaponType) weaponType);
-            generatedWeapon.setDamage(randomDamage);
-            generatedWeapon.setWeaponType((WeaponType) weaponType);
+            generatedItem.setDamage(randomDamage);
+            generatedItem.setWeaponType((WeaponType) weaponType);
             return WeaponPriceCalculator.priceOf(randomDamage, (WeaponType) weaponType);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException("Expected <Weapon> item and itemType, got " + generatedItem.getClass() +
@@ -52,18 +55,8 @@ public class WeaponGenerator extends ItemGenerator {
     }
 
     @Override
-    protected Item createEmpty() {
+    protected Weapon createEmpty() {
         return new Weapon();
-    }
-
-    @Override
-    public Weapon generate(int price) {
-        return (Weapon) super.generate(price);
-    }
-
-    @Override
-    public Weapon generate(int price, ItemType itemType) {
-        return (Weapon) super.generate(price, itemType);
     }
 
     private int getRandomDamage(int price, WeaponType weaponType) {

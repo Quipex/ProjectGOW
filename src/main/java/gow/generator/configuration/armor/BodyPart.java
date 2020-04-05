@@ -20,6 +20,10 @@ public enum BodyPart implements ItemType {
         this.defencePercent = defencePercent;
     }
 
+    public void setDefencePercent(float defencePercent) {
+        this.defencePercent = defencePercent;
+    }
+
     public float getDefencePercent() {
         return defencePercent;
     }

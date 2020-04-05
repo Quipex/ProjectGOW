@@ -2,9 +2,7 @@ package gow.generator.armor;
 
 import gow.generator.Characteristic;
 import gow.generator.Item;
-import gow.generator.ItemGenerator;
 import gow.generator.ItemGeneratorTest;
-import gow.generator.configuration.ItemType;
 import gow.generator.configuration.armor.BodyPart;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class ArmorGeneratorTest extends ItemGeneratorTest {
+class ArmorGeneratorTest extends ItemGeneratorTest<Armor> {
     private ArmorGenerator generator = new ArmorGenerator(Characteristic.STRENGTH);
 
     @Test
@@ -23,12 +21,12 @@ class ArmorGeneratorTest extends ItemGeneratorTest {
     }
 
     @Override
-    protected ItemGenerator getGenerator() {
+    protected ArmorGenerator getGenerator() {
         return generator;
     }
 
     @Override
-    protected ItemType[] getItemTypes() {
+    protected BodyPart[] getItemTypes() {
         return BodyPart.values();
     }
 

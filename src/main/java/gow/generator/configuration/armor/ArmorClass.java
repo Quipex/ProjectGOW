@@ -8,6 +8,7 @@ public enum ArmorClass {
     STR(0.85f, 65);
 
     private float priceModifier;
+
     private int fullSetMaxArmor;
 
     ArmorClass(float priceModifier, int fullSetMaxArmor) {
@@ -32,6 +33,14 @@ public enum ArmorClass {
         }
     }
 
+    public void setPriceModifier(float priceModifier) {
+        this.priceModifier = priceModifier;
+    }
+
+    public void setFullSetMaxArmor(int fullSetMaxArmor) {
+        this.fullSetMaxArmor = fullSetMaxArmor;
+    }
+
     public float priceModifier() {
         return priceModifier;
     }
@@ -39,4 +48,5 @@ public enum ArmorClass {
     public int getFullSetMaxArmor() {
         return fullSetMaxArmor;
     }
+
 }

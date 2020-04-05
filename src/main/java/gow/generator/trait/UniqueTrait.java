@@ -1,5 +1,6 @@
 package gow.generator.trait;
 
+import com.google.common.base.Objects;
 import gow.generator.Characteristic;
 import gow.generator.ItemClass;
 import lombok.Getter;
@@ -19,5 +20,20 @@ public class UniqueTrait extends Trait {
         this(trait.getName(), trait.getPrice());
         itemClass = type;
         this.mainCharacteristic = mainCharacteristic;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        UniqueTrait that = (UniqueTrait) o;
+        return itemClass == that.itemClass &&
+                mainCharacteristic == that.mainCharacteristic;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(super.hashCode(), itemClass, mainCharacteristic);
     }
 }

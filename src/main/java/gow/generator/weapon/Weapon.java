@@ -2,7 +2,9 @@ package gow.generator.weapon;
 
 import gow.generator.Item;
 import gow.generator.configuration.weapon.WeaponType;
+import lombok.ToString;
 
+@ToString(callSuper = true)
 public class Weapon extends Item {
     private int damage;
     private WeaponType weaponType;
@@ -31,4 +33,10 @@ public class Weapon extends Item {
                 prettyPrintTraits() +
                 "\nОбщая цена " + getPrice();
     }
+
+    @Override
+    protected String itemPoints() {
+        return "Урон +" + getDamage();
+    }
+
 }

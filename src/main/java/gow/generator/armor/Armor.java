@@ -44,4 +44,9 @@ public class Armor extends Item {
                 "\nОбщая цена " + getPrice();
 
     }
+
+    @Override
+    protected String itemPoints() {
+        return "Защита +" + getDefence();
+    }
 }
