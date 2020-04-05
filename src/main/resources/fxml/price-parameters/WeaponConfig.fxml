@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="752.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gow.gui.price_parameters.WeaponConfigController">
+    <children>
+        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="952.0" prefWidth="485.0" VBox.vgrow="ALWAYS">
+            <content>
+                <GridPane hgap="5.0" prefHeight="685.0" prefWidth="483.0">
+                    <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="250.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="MARKET" underline="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="CONFIGURATION (WEAPON)" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label text="DMG_PRICE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfieldMarketDefPrice" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="WEAPONTYPE" underline="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="&lt;SWORD_1H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label text="&lt;SWORD_2H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="&lt;HAMMER_1H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label text="&lt;HAMMER_2H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+                            <font>
+                                <Font name="System Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                        <Label text="&lt;AXE_1H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                        <Label text="&lt;AXE_2H&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="19" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                        <Label text="&lt;DAGGER&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="22" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+                        <Label text="&lt;BOW&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="25" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="26" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="27" />
+                        <Label text="&lt;CROSSBOW&gt;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="28" />
+                        <Label text="MAX_DAMAGE" GridPane.columnIndex="1" GridPane.rowIndex="29" />
+                        <Label text="DMG_PRICE_MODIFIER" GridPane.columnIndex="1" GridPane.rowIndex="30" />
+                        <TextField fx:id="tfield1hSwordMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="tfield1hSwordDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <TextField fx:id="tfield2hSwordMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                        <TextField fx:id="tfield2hSwordDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                        <TextField fx:id="tfield1hHammerMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                        <TextField fx:id="tfield1hHammerDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                        <TextField fx:id="tfield2hHammerMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                        <TextField fx:id="tfield2hHammerDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                        <TextField fx:id="tfield1hAxeMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                        <TextField fx:id="tfield1hAxeDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                        <TextField fx:id="tfield2hAxeMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                        <TextField fx:id="tfield2hAxeDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                        <TextField fx:id="tfieldDaggerMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                        <TextField fx:id="tfieldDaggerDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                        <TextField fx:id="tfieldBowMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="26" />
+                        <TextField fx:id="tfieldBowDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="27" />
+                        <TextField fx:id="tfieldCrossbowMaxDamage" GridPane.columnIndex="2" GridPane.rowIndex="29" />
+                        <TextField fx:id="tfieldCrossbowDmgPriceModifier" GridPane.columnIndex="2" GridPane.rowIndex="30" />
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets right="10.0" />
+                    </opaqueInsets>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" VBox.vgrow="NEVER">
+            <children>
+                <Button fx:id="btnSave" defaultButton="true" mnemonicParsing="false" onAction="#onSave" prefWidth="60.0" text="Save" />
+                <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#onCancel" prefWidth="60.0" text="Cancel" />
+            </children>
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+</VBox>
